@@ -30,9 +30,9 @@ def user_input_features():
     options4 = {'否': 1, '是': 0}
     options5 = {'否': 1, '是': 0}
     options6 = {'仅剧烈活动后气促': 0, '平地快走或爬坡时气促': 1, '走100m或爬2层楼即感气促': 2, '日常生活或休息时也感气促': 3}
-    options7 = {'否': 1, '是': 0}
+    options7 = {'否': 0, '是': 1}
     options8 = {'从不吸烟': 0, '已戒烟': 1, '1-14.9包·年': 2, '15-29.9包·年': 3, '≥30包·年': 4}
-    options9 = {'否': 1, '是': 0}
+    options9 = {'否': 0, '是': 1}
     
     # 选择框，显示用户友好的标签
     selected_option1 = st.sidebar.selectbox('性别', list(options1.keys()))
