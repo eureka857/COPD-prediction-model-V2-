@@ -12,7 +12,6 @@ def predict(input_data):
     return predictions
 
 
-
 # 标题和描述
 st.title('COPD prediction model')
 st.write("""
