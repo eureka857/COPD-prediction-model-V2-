@@ -13,7 +13,7 @@ def predict(input_data):
 
 
 # 标题和描述
-st.title('COPD prediction model/赛博算命——测测你有没有慢阻肺')
+st.title('COPD prediction model / 赛博算命——测测你有没有慢阻肺')
 st.write("""
 ## Input
 请在左侧栏输入参数值，然后点击“预测”按钮/Enter the parameter values in the left column and click the "Predict" button。
@@ -27,7 +27,7 @@ def user_input_features():
     options1 = {'男/male': 1, '女/female': 0}
     options2 = {'<40岁/years': 0, '40-49岁/years': 1, '50-59岁/year': 2, '60-69岁/year': 3, '>70岁/years': 4}
     options3 = {'<18.5kg/m2': 7, '18.6-23.9 kg/m2': 4, '24.0-27.9kg/m2': 1, '>28.0kg/m2':0}
-    options4 = {'有/Cough': 1, '没有/Phlegm': 0, '两个都有/Both': 5}
+    options4 = {'有一个/Cough': 1, '没有/Phlegm': 0, '两个都有/Both': 5}
     options5 = {'否/False': 0, '是/Ture': 1}
     options6 = {'仅剧烈活动后气促/Shortness of breath only after strenuous activity': 0, '平地快走或爬坡时气促/Short of breath when walking or climbing fast on flat ground': 1, '走100m或爬2层楼即感气促/Walking 100m or climbing two floors is short of breath': 2, '日常生活或休息时也感气促/Shortness of breath during daily life or at rest': 6, '其他疾病影响了我的活动能力/I was immobilized by other illnesses': 3}
     options7 = {'否/False': 0, '是/Ture': 1, '我记不清/uncertain': 9}
@@ -70,12 +70,12 @@ st.subheader('……')
 st.write(input_df)
 
 # 做预测
-if st.button('点击进行预测'):
+if st.button('点击进行预测/Click to prediction'):
     output = predict(input_df)
     prediction_score = output['prediction_score'][0]  # 假设“Score”是输出DataFrame中的列名
     predicted_label = output['prediction_label'][0]    # 假设“Label”是输出DataFrame中的列名
 
-    st.subheader('预测结果')
+    st.subheader('预测结果/Result')
     
     # 根据得分和标签给出结论    
     if predicted_label == 1:
