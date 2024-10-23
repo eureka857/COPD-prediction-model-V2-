@@ -73,7 +73,7 @@ st.write(input_df)
 if st.button('点击进行预测'):
     output = predict(input_df)
     prediction_score = output['prediction_score'][0]  # 假设“Score”是输出DataFrame中的列名
-    predicted_label = output['Label'][0]    # 假设“Label”是输出DataFrame中的列名
+    predicted_label = output['prediction_label'][0]    # 假设“Label”是输出DataFrame中的列名
 
     st.subheader('预测结果')
     
