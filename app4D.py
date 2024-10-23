@@ -38,11 +38,11 @@ def user_input_features():
     selected_option1 = st.sidebar.selectbox('性别/Sex', list(options1.keys()))
     selected_option2 = st.sidebar.selectbox('年龄/Age', list(options2.keys()))
     selected_option3 = st.sidebar.selectbox('体重指数/BMI', list(options3.keys()))
-    selected_option4 = st.sidebar.selectbox('咳嗽或咳痰/Cough or phlegm', list(options4.keys()))
-    selected_option5 = st.sidebar.selectbox('喘息/Wheeze', list(options5.keys()))
+    selected_option4 = st.sidebar.selectbox('长期咳嗽或咳痰/Cough or phlegm', list(options4.keys()))
+    selected_option5 = st.sidebar.selectbox('反复发生的喘息/Wheeze', list(options5.keys()))
     selected_option6 = st.sidebar.selectbox('活动后气促/mMRC Dyspnea index', list(options6.keys()))
     selected_option7 = st.sidebar.selectbox('曾诊断为肺气肿/Emphysema history', list(options7.keys()))
-    selected_option8 = st.sidebar.selectbox('吸烟指数/Smoking index', list(options8.keys()))
+    selected_option8 = st.sidebar.selectbox('吸烟指数/Smoking index 每天吸烟几包x吸烟几年', list(options8.keys()))
     selected_option9 = st.sidebar.selectbox('过去一年中是否使用呼吸药物治疗/Drug use history of respiratory diseases', list(options9.keys()))
     
     # 获取原始参数值
