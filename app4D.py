@@ -89,9 +89,5 @@ if st.button('点击进行预测'):
       else: # prediction_score >= 0.88
          st.write("您目前很健康。")
 
-    # 显示 prediction_score
-        st.write("预测得分:", prediction_score)
-        
-
     # 显示输出
     st.write(output)
