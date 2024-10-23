@@ -13,37 +13,37 @@ def predict(input_data):
 
 
 # 标题和描述
-st.title('COPD prediction model')
+st.title('COPD prediction model/赛博算命——测测你有没有慢阻肺')
 st.write("""
 ## 输入参数以进行预测
-请在左侧栏输入参数值，然后点击“预测”按钮。
+请在左侧栏输入参数值，然后点击“预测”按钮/Enter the parameter values in the left column and click the "Predict" button。
 """)
 
 # 创建输入数据表单
-st.header('模型内部参数')
+st.header('……')
 
 def user_input_features():
     # 定义显示标签和对应的原始参数值的映射
-    options1 = {'男': 1, '女': 0}
-    options2 = {'<40岁': 0, '40-49岁': 1, '50-59岁': 2, '60-69岁': 3, '>70岁': 4}
+    options1 = {'男/male': 1, '女/female': 0}
+    options2 = {'<40岁/years': 0, '40-49岁/years': 1, '50-59岁/year': 2, '60-69岁/year': 3, '>70岁/years': 4}
     options3 = {'<18.5kg/m2': 4, '18.6-23.9 kg/m2': 1, '24.0-27.9kg/m2': 7, '>28.0kg/m2': 0}
-    options4 = {'否': 0, '是': 1}
-    options5 = {'否': 0, '是': 1}
-    options6 = {'仅剧烈活动后气促': 0, '平地快走或爬坡时气促': 1, '走100m或爬2层楼即感气促': 2, '日常生活或休息时也感气促': 3}
-    options7 = {'否': 0, '是': 1}
-    options8 = {'从不吸烟': 0, '已戒烟': 1, '1-14.9包·年': 2, '15-29.9包·年': 3, '≥30包·年': 4}
-    options9 = {'否': 1, '是': 0}
+    options4 = {'否/False': 0, '是/Ture': 1}
+    options5 = {'否/False': 0, '是/Ture': 1}
+    options6 = {'仅剧烈活动后气促/Shortness of breath only after strenuous activity': 0, '平地快走或爬坡时气促/Short of breath when walking or climbing fast on flat ground': 2, '走100m或爬2层楼即感气促/Walking 100m or climbing two floors is short of breath': 1, '日常生活或休息时也感气促/Shortness of breath during daily life or at rest': 3}
+    options7 = {'否/False': 0, '是/Ture': 1}
+    options8 = {'从不吸烟/Never smoking': 0, '已戒烟/Never smoking': 1, '1-14.9包·年/pack·year': 2, '15-29.9包·年/pack·year': 3, '≥30包·年/pack·year': 4}
+    options9 = {'否/False': 1, '是/Ture': 0}
     
     # 选择框，显示用户友好的标签
-    selected_option1 = st.sidebar.selectbox('性别', list(options1.keys()))
-    selected_option2 = st.sidebar.selectbox('年龄', list(options2.keys()))
-    selected_option3 = st.sidebar.selectbox('体重指数', list(options3.keys()))
-    selected_option4 = st.sidebar.selectbox('咳嗽或咳痰', list(options4.keys()))
-    selected_option5 = st.sidebar.selectbox('喘息', list(options5.keys()))
-    selected_option6 = st.sidebar.selectbox('活动后气促', list(options6.keys()))
-    selected_option7 = st.sidebar.selectbox('曾诊断为肺气肿', list(options7.keys()))
-    selected_option8 = st.sidebar.selectbox('吸烟指数', list(options8.keys()))
-    selected_option9 = st.sidebar.selectbox('过去一年中是否使用呼吸药物治疗', list(options9.keys()))
+    selected_option1 = st.sidebar.selectbox('性别/Sex', list(options1.keys()))
+    selected_option2 = st.sidebar.selectbox('年龄/Age', list(options2.keys()))
+    selected_option3 = st.sidebar.selectbox('体重指数/BMI', list(options3.keys()))
+    selected_option4 = st.sidebar.selectbox('咳嗽或咳痰/Cough or phlegm', list(options4.keys()))
+    selected_option5 = st.sidebar.selectbox('喘息/Wheeze', list(options5.keys()))
+    selected_option6 = st.sidebar.selectbox('活动后气促/mMRC Dyspnea index', list(options6.keys()))
+    selected_option7 = st.sidebar.selectbox('曾诊断为肺气肿/Emphysema history', list(options7.keys()))
+    selected_option8 = st.sidebar.selectbox('吸烟指数/Smoking index', list(options8.keys()))
+    selected_option9 = st.sidebar.selectbox('过去一年中是否使用呼吸药物治疗/Drug use history of respiratory diseases', list(options9.keys()))
     
     # 获取原始参数值
     param1 = options1[selected_option1]
@@ -66,7 +66,7 @@ input_df = user_input_features()
 
 
 # 显示输入参数
-st.subheader('')
+st.subheader('……')
 st.write(input_df)
 
 # 做预测
@@ -79,14 +79,19 @@ if st.button('点击进行预测'):
     
     # 根据得分和标签给出结论
     if prediction_score < 0.78:
-        st.write("您很可能患有慢阻肺病，请进一步行肺功能测试确诊。")
+        st.write("您很可能患有慢阻肺病，建议进一步行肺功能测试明确诊断。")
     else:
-        st.write("您的得分表明您不太可能患有慢阻肺病。")
+        st.write("您目前还不是慢阻肺，但建议将肺功能测试纳入您的年度体检计划")
 
     if predicted_label == 1:
         st.write("您很可能患有中度及以上慢阻肺，请立即前往呼吸专科门诊就诊。")
     else:
-        st.write("您的标签显示您不太可能患有中度及以上慢阻肺。")
+        st.write("……")
+
+     if prediction_score > 0.88:
+        st.write("您目前肺部健康尚好，请继续保持。")
+    else:
+        st.write("您有一些患上慢阻肺的风险，请您戒烟，加强锻炼，持续关注呼吸健康")
 
     # 显示输出
     st.write(output)
