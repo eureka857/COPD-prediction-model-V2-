@@ -32,7 +32,7 @@ def user_input_features():
     options6 = {'仅剧烈活动后气促/Shortness of breath only after strenuous activity': 0, '平地快走或爬坡时气促/Short of breath when walking or climbing fast on flat ground': 2, '走100m或爬2层楼即感气促/Walking 100m or climbing two floors is short of breath': 3, '日常生活或休息时也感气促/Shortness of breath during daily life or at rest': 6, '其他疾病影响了我的活动能力/I was immobilized by other illnesses': 1}
     options7 = {'否/False': 0, '是/Ture': 1, '我记不清/uncertain': 9}
     options8 = {'从不吸烟/Never smoking': 0, '已戒烟/Never smoking': 1, '1-14.9包·年/pack·year': 2, '15-29.9包·年/pack·year': 3, '≥30包·年/pack·year': 4}
-    options9 = {'否/False': 0, '是/Ture': 1}
+    options9 = {'否/False': 1, '是/Ture': 0}
     
     # 选择框，显示用户友好的标签
     selected_option1 = st.sidebar.selectbox('性别/Sex', list(options1.keys()))
