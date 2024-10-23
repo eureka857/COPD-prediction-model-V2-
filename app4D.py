@@ -41,7 +41,7 @@ def user_input_features():
     selected_option4 = st.sidebar.selectbox('咳嗽或咳痰', list(options4.keys()))
     selected_option5 = st.sidebar.selectbox('喘息', list(options5.keys()))
     selected_option6 = st.sidebar.selectbox('活动后气促', list(options6.keys()))
-    selected_option7 = st.sidebar.selectbox('发现影像上的肺气肿', list(options7.keys()))
+    selected_option7 = st.sidebar.selectbox('曾诊断为肺气肿', list(options7.keys()))
     selected_option8 = st.sidebar.selectbox('吸烟指数', list(options8.keys()))
     selected_option9 = st.sidebar.selectbox('过去一年中是否使用呼吸药物治疗', list(options9.keys()))
     
@@ -72,5 +72,6 @@ st.write(input_df)
 # 做预测
 if st.button('点击进行预测'):
     output = predict(input_df)
-    st.subheader('预测结果')
+    st.subheader('如最后一栏得分低于0.78，则您很可能患有慢阻肺病，请进一步行肺功能测试确诊
+    ；如果倒数第二栏label显示为1，则您很可能患有中度及以上慢阻肺，请立即前往呼吸专科门诊就诊')
     st.write(output)
