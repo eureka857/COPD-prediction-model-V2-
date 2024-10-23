@@ -77,11 +77,7 @@ if st.button('点击进行预测'):
 
     st.subheader('预测结果')
     
-    # 根据得分和标签给出结论
-    if prediction_score < 0.78:
-        st.write("您很可能患有慢阻肺病，建议进一步行肺功能测试明确诊断。")
-    else:
-        st.write("您目前还不是慢阻肺，但建议将肺功能测试纳入您的年度体检计划")
+    # 根据得分和标签给出结论    
     if prediction_score < 0.78:
             st.write("您很可能患有慢阻肺病，建议进一步行肺功能测试明确诊断。")
         elif 0.78 <= prediction_score < 0.88:
