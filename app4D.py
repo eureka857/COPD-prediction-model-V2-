@@ -66,11 +66,27 @@ input_df = user_input_features()
 
 
 # 显示输入参数
-st.subheader('如最后一栏得分低于0.78，则您很可能患有慢阻肺病，请进一步行肺功能测试确诊。如果倒数第二栏label显示为1，则您很可能患有中度及以上慢阻肺，请立即前往呼吸专科门诊就诊')
+st.subheader('')
 st.write(input_df)
 
 # 做预测
 if st.button('点击进行预测'):
     output = predict(input_df)
-    st.subheader('如最后一栏得分低于0.78，则您很可能患有慢阻肺病，请进一步行肺功能测试确诊。如果倒数第二栏label显示为1，则您很可能患有中度及以上慢阻肺，请立即前往呼吸专科门诊就诊')
+    prediction_score = output['Score'][0]  # 假设“Score”是输出DataFrame中的列名
+    predicted_label = output['Label'][0]    # 假设“Label”是输出DataFrame中的列名
+
+    st.subheader('预测结果')
+    
+    # 根据得分和标签给出结论
+    if prediction_score < 0.78:
+        st.write("您很可能患有慢阻肺病，请进一步行肺功能测试确诊。")
+    else:
+        st.write("您的得分表明您不太可能患有慢阻肺病。")
+
+    if predicted_label == 1:
+        st.write("您很可能患有中度及以上慢阻肺，请立即前往呼吸专科门诊就诊。")
+    else:
+        st.write("您的标签显示您不太可能患有中度及以上慢阻肺。")
+
+    # 显示输出
     st.write(output)
