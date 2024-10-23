@@ -27,7 +27,7 @@ def user_input_features():
     options1 = {'男/male': 1, '女/female': 0}
     options2 = {'<40岁/years': 0, '40-49岁/years': 1, '50-59岁/year': 2, '60-69岁/year': 3, '>70岁/years': 4}
     options3 = {'<18.5kg/m2': 7, '18.6-23.9 kg/m2': 4, '24.0-27.9kg/m2': 1, '>28.0kg/m2':0}
-    options4 = {'有/Cough': 0, '没有/Phlegm': 1, '两个都有/Both': 5}
+    options4 = {'有/Cough': 1, '没有/Phlegm': 0, '两个都有/Both': 5}
     options5 = {'否/False': 0, '是/Ture': 1}
     options6 = {'仅剧烈活动后气促/Shortness of breath only after strenuous activity': 0, '平地快走或爬坡时气促/Short of breath when walking or climbing fast on flat ground': 1, '走100m或爬2层楼即感气促/Walking 100m or climbing two floors is short of breath': 2, '日常生活或休息时也感气促/Shortness of breath during daily life or at rest': 6, '其他疾病影响了我的活动能力/I was immobilized by other illnesses': 3}
     options7 = {'否/False': 0, '是/Ture': 1, '我记不清/uncertain': 9}
