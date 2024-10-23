@@ -82,12 +82,12 @@ if st.button('点击进行预测'):
        st.write("您很可能患有中度及以上慢阻肺，请立即前往呼吸专科门诊就诊。")
     else:
     # 根据得分给出结论
-    if prediction_score < 0.78:
-        st.write("您很可能患有慢阻肺病，请进一步行肺功能测试确诊。")
-    elif 0.78 <= prediction_score < 0.88:
-        st.write("您目前没有慢阻肺，但风险很高。")
-    else:  # prediction_score >= 0.88
-        st.write("您目前很健康。")
+      if prediction_score < 0.78:
+         st.write("您很可能患有慢阻肺病，请进一步行肺功能测试确诊。")
+      elif 0.78 <= prediction_score < 0.88:
+         st.write("您目前没有慢阻肺，但风险很高。")
+      else: # prediction_score >= 0.88
+         st.write("您目前很健康。")
 
     # 显示 prediction_score
         st.write("预测得分:", prediction_score)
