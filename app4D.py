@@ -15,8 +15,8 @@ def predict(input_data):
 # 标题和描述
 st.title('COPD prediction model / 赛博算命——测测你有没有慢阻肺')
 st.write("""
-## Input
-请在左侧栏输入参数值，然后点击“预测”按钮/Enter the parameter values in the left column and click the "Predict" button。
+## 请填写/Input 
+请在左侧栏选择符合您目前状态的选项，然后点击“预测”按钮/Enter the parameter values in the left column and click the "Predict" button。
 """)
 
 # 创建输入数据表单
@@ -79,15 +79,15 @@ if st.button('点击进行预测/Click to prediction'):
     
     # 根据得分和标签给出结论    
     if predicted_label == 1:
-       st.write("您很可能患有中度及以上慢阻肺，请立即前往呼吸专科门诊就诊。")
+       st.write("您很可能患有中度及以上慢阻肺，请立即前往呼吸专科门诊就诊。You are likely to have moderate to severe COPD, please visit a respiratory specialist clinic immediately")
     else:
     # 根据得分给出结论
       if prediction_score < 0.77:
-         st.write("您很可能患有慢阻肺病，建议进一步行肺功能测试明确诊断。")
+         st.write("您很可能患有慢阻肺病，建议进一步行肺功能测试明确诊断。It is likely that you have COPD, and further pulmonary function testing is recommended to confirm the diagnosis")
       elif 0.78 <= prediction_score < 0.90:
-         st.write("您目前还不是慢阻肺，但有患上慢阻肺的风险，请您戒烟，加强锻炼，持续关注呼吸健康，并将肺功能测试纳入您的年度体检计划。")
+         st.write("您目前还不是慢阻肺，但有患上慢阻肺的风险，请您戒烟，加强锻炼，持续关注呼吸健康，并将肺功能测试纳入您的年度体检计划。If you are not currently COPD, but you are at risk of developing COPD, please quit smoking, exercise more, continue to pay attention to respiratory health, and include pulmonary function testing in your annual physical examination plan")
       else: # prediction_score >= 0.90
-         st.write("您目前肺部健康尚好，请继续保持。")
+         st.write("您目前肺部健康尚可，请继续保持。Your current lung health is good, please continue to maintain")
 
     # 显示输出
     st.write(output)
