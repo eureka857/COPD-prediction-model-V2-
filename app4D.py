@@ -4,7 +4,7 @@ from pycaret.classification import load_model, predict_model
 
 
 # 加载模型
-model = load_model('tuned_model2')
+model = load_model('GOLDCOPD_prediction_model')
 
 # 定义一个函数用于预测
 def predict(input_data):
@@ -24,25 +24,25 @@ st.header('……')
 
 def user_input_features():
     # 定义显示标签和对应的原始参数值的映射
-    options1 = {'男/male': 1, '女/female': 0}
-    options2 = {'<40岁/years': 0, '40-49岁/years': 1, '50-59岁/year': 2, '60-69岁/year': 3, '>70岁/years': 4}
-    options3 = {'<18.5kg/m2': 0, '18.6-23.9 kg/m2': 7, '24.0-27.9kg/m2': 1, '>28.0kg/m2':4}
-    options4 = {'有/Ture': 0, '没有/False': 1}
-    options5 = {'否/False': 0, '是/Ture': 1}
-    options6 = {'仅剧烈活动后气促/Shortness of breath only after strenuous activity': 0, '平地快走或爬坡时气促/Short of breath when walking or climbing fast on flat ground': 2, '走100m或爬2层楼即感气促/Walking 100m or climbing two floors is short of breath': 3, '日常生活或休息时也感气促/Shortness of breath during daily life or at rest': 6, '其他疾病影响了我的活动能力/I was immobilized by other illnesses': 1}
-    options7 = {'否/False': 9, '是/Ture': 0, '我记不清/uncertain': 1}
-    options8 = {'从不吸烟/Never smoking': 1, '已戒烟/Never smoking': 0, '1-14.9包·年/pack·year': 2, '15-29.9包·年/pack·year': 3, '≥30包·年/pack·year': 4}
-    options9 = {'否/False': 0, '是/Ture': 1}
+    options1 = {'男male': 0, '女female': 1}
+    options2 = {'40-49岁/years': 1, '50-59岁year': 2, '60-69岁year': 3, '>70岁years': 4}
+    options3 = {'<18.5kg/m2': 7, '18.6-23.9 kg/m2': 4, '24.0-27.9kg/m2':1, '>28.0kg/m2': 0}
+    options4 = {'否False': 0, '是Ture': 1}
+    options5 = {'否False': 0, '是Ture': 1}
+    options6 = {'仅剧烈活动后气促Shortness of breath after strenuous activity only': 1, '平地快走或爬坡时气促Shortness of breath when walking fast or climbing on flat ground': 2, '活动时需要频繁休息，爬2层楼也感气促Activities need frequent rest, climbing 2 floors also feel shortness of breath': 3'}
+    options7 = {'否False': 0, '是/Ture': 1}
+    options8 = {'从不吸烟Never smoking': 1, '1-14.9包·年pack·year': 2, '15-29.9包·年pack·year': 3, '≥30包·年pack·year': 4}
+    options9 = {'否False': 0, '是Ture': 1}
     
     # 选择框，显示用户友好的标签
-    selected_option1 = st.sidebar.selectbox('性别/Sex', list(options1.keys()))
-    selected_option2 = st.sidebar.selectbox('年龄/Age', list(options2.keys()))
-    selected_option3 = st.sidebar.selectbox('体重指数/BMI', list(options3.keys()))
-    selected_option4 = st.sidebar.selectbox('长期咳嗽或咳痰/Cough or phlegm', list(options4.keys()))
-    selected_option5 = st.sidebar.selectbox('反复发生的喘息/Wheeze', list(options5.keys()))
-    selected_option6 = st.sidebar.selectbox('活动后气促/mMRC Dyspnea index', list(options6.keys()))
-    selected_option7 = st.sidebar.selectbox('曾诊断为肺气肿/Emphysema history', list(options7.keys()))
-    selected_option8 = st.sidebar.selectbox('吸烟指数/Smoking index 每天吸烟几包x吸烟几年', list(options8.keys()))
+    selected_option1 = st.sidebar.selectbox('性别Sex', list(options1.keys()))
+    selected_option2 = st.sidebar.selectbox('年龄Age', list(options2.keys()))
+    selected_option3 = st.sidebar.selectbox('体重指数BMI=体重kg/身高*身高m', list(options3.keys()))
+    selected_option4 = st.sidebar.selectbox('长期咳嗽或咳痰Cough or phlegm', list(options4.keys()))
+    selected_option5 = st.sidebar.selectbox('反复发生的喘息Wheeze', list(options5.keys()))
+    selected_option6 = st.sidebar.selectbox('活动后气促mMRC Dyspnea index', list(options6.keys()))
+    selected_option7 = st.sidebar.selectbox('曾诊断为肺气肿Emphysema history', list(options7.keys()))
+    selected_option8 = st.sidebar.selectbox('吸烟指数Smoking index 每天吸烟几包x吸烟几年', list(options8.keys()))
     selected_option9 = st.sidebar.selectbox('过去一年中是否使用呼吸药物治疗/Drug use history of respiratory diseases', list(options9.keys()))
     
     # 获取原始参数值
