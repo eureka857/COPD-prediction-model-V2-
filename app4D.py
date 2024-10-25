@@ -20,7 +20,7 @@ st.write("""
 """)
 
 # 创建输入数据表单
-st.header('……')
+st.header('…')
 
 def user_input_features():
     # 定义显示标签和对应的原始参数值的映射
